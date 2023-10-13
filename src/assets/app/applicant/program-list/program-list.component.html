@@ -1,0 +1,34 @@
+<div class="program-list">
+    <div class="mycontainer">
+        <header class="d-flex justify-content-between align-items-center mt-5">
+            <h4>برامج الدبلومات المتاحة حاليا</h4>
+            <!-- <div class="search-bar">
+                <input type="text" class="" placeholder="بحث" (keyup)="searchProgram($event.target)">
+                <img src="../../../assets/applicant/search.svg" alt="">
+            </div> -->
+        </header>
+
+
+        <div *ngIf="isLoading">
+            <app-loading-spinner>
+
+            </app-loading-spinner>
+        </div>
+
+        <div class="list" *ngIf="programList && !isLoading">
+
+            <ol>
+                <li *ngFor="let program of programList.data.programs ; let i = index" class="mb-4" (click)="showProgramDetails(i)">
+                    {{program.name}}
+                </li>
+
+
+               
+            </ol>
+
+
+            
+        </div>
+    </div>
+
+</div>

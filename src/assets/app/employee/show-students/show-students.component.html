@@ -1,0 +1,153 @@
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5" >
+  <div *ngIf="!applicationsData">
+      <app-loading-spinner></app-loading-spinner>
+  </div>
+  
+</div>
+
+
+<div class="students-list" *ngIf="applicationsData && deplomsData">
+    <div class="mycontainer">
+        <header class="d-flex justify-content-between align-items-center mt-5">
+            <div class="program-header d-flex justify-content-start align-items-center">
+                <img src="../../../assets/applicant/Vector.svg" alt="">
+                <h4 class="pt-1">{{deplomsData.data.program.name}}</h4>
+            </div>
+            <div class="" *ngIf="applicationsData" style="z-index: 1000;">  
+
+   
+              <div class="text-center mb-4">
+                <div class="shows" (click)="showSheet()">
+                  <button class="custom-button">قائمة الطلاب {{ programIndex | statusText }}</button>
+                </div>
+              </div>
+              
+              <div class="bottom-sheet" [ngClass]="{'show': isSheetVisible, 'fullscreen': isFullscreen}" #sheet>
+                <div class="sheet-overlay" (click)="remove()" *ngIf="isSheetVisible"></div>
+              
+                <div class="content" [style.height.%]="sheetHeight" #contents>
+                  <div class="header">
+                    <div class="drag-icon" (mousedown)="dragStart($event)" (touchstart)="dragStart($event)" (mousemove)="dragging($event)" (touchmove)="dragging($event)" (mouseup)="dragStop()" (touchend)="dragStop()" *ngIf="isSheetVisible"><span></span></div>
+                  </div>
+                  <div class="body">
+                    
+                    <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()"> 
+                      <br/><br/>  
+                      <div class="pdfContainer" id="content" #content> 
+                
+                        <table class="table table-bordered ">  
+                          <!-- Add your title here -->
+                  
+                            <tr>  
+                                <th>اسم الطالب</th>  
+                                <th>الرقم القومي</th>  
+                                <th>الحاله</th>
+                                
+                            </tr>  
+                            <tr *ngFor="let application of applicationsData.data.applications; let i = index" >  
+                                <th>{{ application.applicant_name}}</th>  
+                                <th>{{application.national_id}}</th>  
+                                <th>{{application.status | statusText}}</th>
+                                 
+                            </tr>  
+                           
+                        </table>  
+                    </div>  
+            
+                    </div>
+                  </div>
+                </div>
+              
+              
+            
+            
+              
+            </div>          
+        </header>
+
+        <div class="filter">
+          <h5 class="col-lg-3  choose mt-2">  فلتر حسب</h5>
+          <select id="program"
+          class="form-control w-75 mt-2"
+          
+          name="selectProgram" 
+          required
+          [(ngModel)]="programIndex"
+
+          (ngModelChange)="onfilterSelectionChange($event)"
+          #selectProgram
+          >
+
+          <option value="" >الكل</option>
+          <option value="pending"   >{{ 'pending' | statusText }}</option>
+          <option value="reviewed"  >{{ 'reviewed' | statusText }}</option>
+          <option value="first acceptance"  >{{ 'first acceptance' | statusText }}</option>
+          <option value="final acceptance"  >{{ 'final acceptance' | statusText }}</option>
+      </select>
+      </div>
+
+        
+
+          
+        <div class="student-container pt-5">
+            <div class="row d-flex justify-content-start" *ngIf="this.applicationsData && deplomsData">
+              <div class="col-md-4" *ngFor="let application of applicationsData.data.applications; let i = index" (click)="studentInfo(i)">
+                <div class="rectangle mt-4 text-center">
+
+                  <h4>{{ application.applicant_name}}</h4>
+
+                  <div class="mt-3">  <h5>الحاله: {{ application.status | statusText}}</h5></div>
+                  <div class="date mt-3">تم الانشاء في : {{application.created_at | dateFormat}}</div>
+                    <div class="price mt-2">تم التحديث في : {{application.updated_at | dateFormat}}</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+            
+                  
+               
+
+
+               
+              
+                               
+          
+        
+       
+
+            
+        
+    </div>
+
+</div>
+
+
+
+
+<!-- Add pagination controls -->
+
+
+
+
+
+
+ <nav aria-label="..." class="mt-5">
+  <ul class="pagination justify-content-center mt-3">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <span class="page-link" (click)="onPageChange(currentPage - 1)">السابق</span>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <a class="page-link"  (click)="onPageChange(page)">{{ page }} <span class="sr-only" *ngIf="page === currentPage">(current)</span></a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <span class="page-link" (click)="onPageChange(currentPage + 1)">التالي</span>
+    </li>
+  </ul>
+</nav>
+
+
+ 

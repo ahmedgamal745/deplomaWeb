@@ -1,0 +1,186 @@
+.all
+{
+    display: flex;
+    justify-content: center;
+   margin-top: 50px;
+    
+}
+.application
+{
+    width: 600px;
+min-height: 700px;
+padding-bottom: 20px;
+
+background: #FFF;
+box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input-container
+{
+    margin-top: 8px;
+    
+width: 450px;
+height: 50px;
+padding: 10px 16px;
+cursor: pointer;
+border-radius: 8px;
+border: 1px solid var(--placeholder, #7F7C7E);
+}
+.input-container input
+{
+    outline: none;
+    border: none;
+    color: var(--placeholder, #7F7C7E);
+text-align: right;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+cursor: pointer;
+line-height: normal;
+}
+.input-container span
+{
+    color:var(--placeholder, #7F7C7E)
+}
+.btn
+{
+    width: 140px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--primary-blue, #1778C2);
+    color: white;
+    color: #FFF;
+    font-family: Cairo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+header
+{
+  color: var(--DarkBlue, #001D4B);
+text-align: right;
+font-family: Cairo;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal
+}
+@media screen and (max-width: 480px) {
+    .application {
+      width: 90%; /* Adjust the width for smaller screens */
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for medium-sized screens */
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for smaller screens */
+      padding: 20px; /* Add some padding to the form */
+      height: auto; /* Allow the height to adjust to content */
+    }
+  
+    .input-container {
+      width: 100%; /* Take up the full width on smaller screens */
+    }
+  }
+
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .application {
+      width: 60%; /* Adjust the width for larger screens */
+    }
+  }
+
+  @media screen and (min-width: 1201px) {
+    .application {
+      width: 40%; /* Default width for larger screens */
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+
+.overlay
+{
+  
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000000000000;
+display: none;
+   background-color: 
+  rgba(127,127,127,.5)
+}
+.overlay-content
+{
+  width: 400px;
+
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+ 
+   animation-name: expandAnimation;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+}
+@keyframes expandAnimation {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 300px;
+  }
+}
+.thank-you
+{
+  width: 260px;
+  height: 200px;
+
+}
+
+.verify-icon
+{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+border: 4px solid var(--primarygreen-color) ;
+display: none;
+  // background-color: var(--primarygreen-color);
+}
+
+.verify-icon .iconn 
+{
+  color: var(--primarygreen-color);
+  font-size: 40px;
+  display: none;
+  
+}
+.thank-you-header,.thank-you-parag,.thank-you-btn
+{
+  display: none;
+}

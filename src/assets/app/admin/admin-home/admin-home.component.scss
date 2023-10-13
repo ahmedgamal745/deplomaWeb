@@ -1,0 +1,93 @@
+
+.reactangle-icon-shape
+{
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.home
+{
+    background: #1A5CAA;
+}
+.add
+{
+    background: #1778c2;
+}
+.delete
+{
+    background: var(--Red, #CD5858);
+}
+.rectangle-college-shape
+{
+    background: var(--White, #FFF);
+    padding: 30px;
+    text-align: center;
+    min-height: 260px;
+    cursor: pointer;
+    /* PDF Style */
+    box-shadow: 0px 3.27652px 26.21217px 0px rgba(0, 0, 0, 0.25);
+}
+.rectangle-college-shape h5
+{
+        color: var(--Primary-Blue, #1778C2);
+   
+  
+    font-size: 35px;
+  
+    font-weight: 600;
+  
+}
+.rectangle-college-shape h6
+{
+    color: var(--Primary-Blue, #1778C2);
+
+    font-size: 32px !important;
+
+    font-weight: 500;
+
+}
+
+
+.rectangle-college-shape .date ,.price
+{
+    color: var(--Placeholder, #7F7C7E);
+  
+   
+    font-size: 24px;
+ 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        /************** start home for admin ************/
+.categories
+{
+   
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+.add-diploma, .add-employee,.add-lecturer
+{
+    cursor: pointer;
+}
+                                        /************ end home for admin ********/
+

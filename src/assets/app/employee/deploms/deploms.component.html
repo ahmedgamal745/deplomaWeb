@@ -1,0 +1,41 @@
+
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5" >
+    <div *ngIf="!deplomsData">
+        <app-loading-spinner></app-loading-spinner>
+    </div>
+    
+</div>
+
+<div class="container" style="position: relative;" *ngIf="deplomsData">
+    <header class="d-flex justify-content-between align-items-center mt-5">
+        
+            <div class="program-header d-flex justify-content-start align-items-center" >
+                <img src="../../../assets/applicant/Vector.svg" alt="">
+                <h4 class="pt-1">{{deplomsData.data.program.name}}</h4>
+            </div>
+        
+    </header>
+
+    <div class="pt-5">
+        <h4>عن الدبلومة</h4>
+        <b>{{deplomsData.data.program.description}}</b>
+    </div>
+<!-- 
+    <div class="semesters pt-5">
+        <div class=" d-flex justify-content-start align-items-center">
+            <img src="../../../assets/employee/Vector1.svg" alt="">
+            <h5>العام الدراسي الاول</h5>
+        </div>
+        <div class=" d-flex justify-content-start align-items-center pt-4">
+            <img src="../../../assets/employee/Vector1.svg" alt="">
+            <h5>العام الدراسي الثاني</h5>
+        </div>
+    </div> -->
+
+    <div class="btu mt-5">
+        <button class="btn btn-primary" (click)="clickHere()" >الطلبة المتقدمين</button>
+    </div>
+</div>
+

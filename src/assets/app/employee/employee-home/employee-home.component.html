@@ -1,0 +1,22 @@
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5" >
+    <div *ngIf="!deploms">
+        <app-loading-spinner></app-loading-spinner>
+    </div>
+    
+</div>
+
+<div class="container" *ngIf="deploms">
+    <header class="d-flex justify-content-between align-items-center mt-5">
+        <div class="program-header d-flex justify-content-start align-items-center">
+            <h4 class="pt-1">برامج الدبلومات المتاحة حاليا</h4>
+        </div>            
+    </header>
+
+    <div *ngFor="let deplomis of deploms.data.programs; let i = index;"  (click)="clickHere(i)">
+        <form class="deploms pt-3" style="display: flex; flex-direction: column;" >
+            <a class="py-1">{{i+1}}. {{deplomis.name}}</a> 
+        </form>
+    </div>
+</div>

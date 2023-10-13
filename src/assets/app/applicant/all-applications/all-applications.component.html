@@ -1,0 +1,217 @@
+
+
+ <div class="diplomas mt-4">
+    <div class="mycontainer">
+
+       <div class="icons d-flex justify-content-start">
+
+            <div class="reactangle-icon-shape home" (click)="navigateToParentComponent()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 59 59" fill="none">
+                    <path d="M46.708 51.6255H12.2913C11.6394 51.6255 11.0141 51.3665 10.553 50.9054C10.092 50.4444 9.83301 49.8191 9.83301 49.1671V27.0421H2.45801L27.8452 3.96329C28.2978 3.55146 28.8878 3.32324 29.4997 3.32324C30.1116 3.32324 30.7015 3.55146 31.1541 3.96329L56.5413 27.0421H49.1663V49.1671C49.1663 49.8191 48.9073 50.4444 48.4463 50.9054C47.9853 51.3665 47.36 51.6255 46.708 51.6255ZM31.958 46.7088H44.2497V22.5114L29.4997 9.10366L14.7497 22.5114V46.7088H27.0413V31.9588H31.958V46.7088Z" fill="white"/>
+                </svg>
+            </div>
+
+          
+
+
+           
+       </div>
+
+
+
+
+       <div class="programs-list mt-3">
+        <div class="form-group" *ngIf="allPrograms">
+
+            <header class="col-lg-3  choose mt-2"> اختار دبلومه </header>
+            <select id="program"
+            class="form-control w-50 mt-2"
+            
+            name="selectProgram" 
+            required
+            [(ngModel)]="programIndex"
+
+            (ngModelChange)="onProgramSelectionChange($event)"
+            #selectProgram
+            >
+
+          <option   *ngFor="let program of allPrograms.data.programs ; let i = index" [value]="i">{{program.name}}</option>
+        </select>
+          </div>
+       </div>
+
+
+
+
+
+
+        <!--loading spinner-->
+         <div class="text-center mt-5"  *ngIf="isLoading" >
+            <app-loading-spinner></app-loading-spinner>
+
+        </div> 
+
+        <!--loading spinner-->
+
+         <!-- programs not found-->
+         <div  *ngIf="!applications && !isLoading" class="mt-5">
+          <h3>
+            **  لا يوجد طلبات تقديم في هذه الدبلومه
+          </h3>  
+        </div> 
+
+        <!-- programs not found-->
+
+     <div class="row mt-5" *ngIf="!isLoading && applications">
+
+        
+
+        
+
+            <div  class="diploma  col-md-4 mt-4 " *ngFor="let application of applications.data.applications ; let i = index" (click)="openApplicationDetails(i)" data-toggle="modal" data-target="#showDetails">
+                <div class="rectangle-diploma-shape">
+                    <h5>{{application.program_name}}</h5>
+                
+                    <div class="date mt-4">الحاله: {{application.status | statusText}} </div>
+                    <!-- <div class="price mt-2">  تم انشاء الطلب في :{{application.created_at}} </div>
+
+                     <div class="date mt-3">   تم تحديث الطلب في: {{application.updated_at}}</div> -->
+
+                    <button class="read-more mt-5" type="button"  style="cursor: pointer;"> المزيد</button>
+                </div>
+
+            </div>
+
+
+    
+
+
+   
+
+
+
+
+
+
+
+
+       </div> 
+
+    </div>
+</div>
+
+
+ 
+
+
+
+  <!-- show Application details -->
+  <div class="modal fade" id="showDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-arabic  modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between">
+          <h5 class="modal-title" id="exampleModalLabel"> تفاصيل الطلب</h5>
+         
+
+          <div data-dismiss="modal" aria-label="Close" style="font-size: 25px; cursor: pointer;">x</div>
+
+        </div>
+
+
+
+        <div class="modal-body p-5"  >
+
+            <form class="form-content mt-4"  *ngIf="selectedAppDetials">
+
+
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3  ">  اسم الطالب </header>
+                    
+                    <div class="col-lg-5">
+                       
+                            <input type="text" class="form-control"   [value]="selectedAppDetials.data.application.name" disabled>
+                       
+                    </div>
+                </div>
+
+
+
+
+                <div class="row d-flex align-items-center mt-4 ">
+                    <header class="col-lg-3  "> الحاله</header>
+                    
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" [value]="selectedAppDetials.data.application.status | statusText"  disabled >
+
+                       
+                    </div>
+                </div>
+
+
+    
+
+
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3  "> حالة رسوم الطلب</header>
+                    
+                    <div class="col-lg-5">
+                       
+                            <input type="text" class="form-control"   [value]="selectedAppDetials.data.application.applying_fees_status ? 'تم دفع الرسوم' : 'لم يتم الدفع'" disabled>
+                       
+                    </div>
+                </div>
+
+
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3  "> حالة رسوم البرنامج</header>
+                    
+                    <div class="col-lg-5">
+                       
+                            <input type="text" class="form-control"   [value]="selectedAppDetials.data.application.program_fees_status ? 'تم دفع الرسوم' : 'لم يتم الدفع'"disabled >
+                       
+                    </div>
+                </div>
+
+
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3  "> الملاحظات</header>
+                    
+                    <div class="col-lg-5">
+                       
+                            <!-- <input type="text" class="form-control"   [value]="selectedAppDetials.data.application.feedback" disabled > -->
+
+
+                            <textarea name="" id="" cols="40" rows="6" disabled [value]="selectedAppDetials.data.application.feedback">
+
+                            </textarea>
+                       
+                    </div>
+                </div>
+    
+
+    
+    
+
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <button type="button" class="btn close-btn" data-dismiss="modal">اغلاق</button>
+
+                </div>
+                
+            </form>
+          
+        </div>
+
+
+
+
+     
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- show Application details -->

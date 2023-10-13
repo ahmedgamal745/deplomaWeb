@@ -1,0 +1,43 @@
+header h4
+{
+    color: var(--primary-blue, #1778C2);
+text-align: right;
+font-family: Cairo;
+font-size: 35px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.program-header img 
+{
+    width: 32px;
+    margin-left: 9px;
+height: 32px;
+}
+.semesters img{
+    width: 23px;
+    margin-left: 9px;
+    height: 23px;
+}
+.semesters h5{
+    text-align: right;
+font-family: Cairo;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+
+.btu{
+    // position: absolute;
+    // top: 550px;
+    // left: 0;
+}
+.btn{
+    
+    padding: 0.49rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    // bottom: 0;
+}

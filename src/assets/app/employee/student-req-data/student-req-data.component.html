@@ -1,0 +1,127 @@
+<div class="student-data py-3">
+    <div class="mycontainer">
+        <header class="d-flex justify-content-between align-items-center mt-5">
+            <div class="data-header d-flex justify-content-start align-items-center">
+                <img src="../../../assets/applicant/Vector.svg" alt="">
+                <h4 class="pt-1 mr-3">بيانات الطالب</h4>
+            </div>         
+        </header>
+        <div>
+        <div class="data-content mt-4"  *ngIf="applicationData">
+
+            <div class="row d-flex align-items-center">
+                <header class="col-lg-3 col-md-3">الاسم بالكامل: </header>
+                
+                <div class="col-md-8">
+                    <div class="input-container ">
+                        <span class="text-style">{{applicationData.data.application.name}}</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="row d-flex align-items-center mt-4" *ngFor="let file of applicationData.data.files">
+                <header class="col-lg-3 col-md-3">{{file.original_name}} : </header>
+                <div class="col-md-8">
+                    <div class="input-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none">
+                            <path d="M3.00002 9H9.00002C9.26524 9 9.5196 8.89464 9.70713 8.70711C9.89467 8.51957 10 8.26522 10 8V2H20.002C20.553 2 21 2.455 21 2.992V21.008C20.9998 21.2712 20.895 21.5235 20.7088 21.7095C20.5226 21.8955 20.2702 22 20.007 22H3.99302C3.8617 21.9991 3.73185 21.9723 3.61087 21.9212C3.48989 21.8701 3.38017 21.7957 3.28796 21.7022C3.19575 21.6087 3.12286 21.4979 3.07346 21.3762C3.02406 21.2545 2.9991 21.1243 3.00002 20.993V9ZM3.00002 7L8.00002 2.003V7H3.00002Z" fill="#7F7C7E"/>
+                          </svg>
+                        <span class="text-style mr-2"><a href="{{ file.downloadUrl }}" >الصورة</a></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            
+               <form [formGroup]="updateAppForm" (ngSubmit)="updateApplication()">
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3 col-md-3">مراجعه الطلب:</header>
+                    <div class="col-md-8">
+                      
+                        <select formControlName="status" class="input-container">
+                            <option disabled selected [value]="applicationData.data.application.status">{{applicationData.data.application.status | statusText}}</option>
+                            <option *ngIf="applicationData.data.application.status !=='pending'" value="pending"> تحت المراجعه</option>
+                            <option *ngIf="applicationData.data.application.status !=='reviewed'" value="reviewed">تمت المراجعه</option>
+                          <option *ngIf="applicationData.data.application.status !== 'first acceptance'" value="first acceptance">قبول مبدئي   </option>
+                          
+                          <option *ngIf="applicationData.data.application.status !== 'final acceptance'" value="final acceptance">قبول نهائي</option>
+                        </select>
+                      
+                    </div>
+                  </div>
+                  
+    
+    
+    
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3 col-md-3"> حاله دفع رسوم الدبلومه:</header>
+                    <div class="col-md-8">
+                        
+                            <select class="text-style w-100" class="input-container"  name="feesStatusSelector" formControlName="program_fees_status">
+                                <option  disabled selected [value]="applicationData.data.application.program_fees_status">{{applicationData.data.application.program_fees_status ? 'تم دفع الرسوم' : 'لم يتم دفع الرسوم'}}</option>
+                                <option  *ngIf="applicationData.data.application.program_fees_status != true" value="true">تم دفع الرسوم</option>
+                                <option  *ngIf="applicationData.data.application.program_fees_status != false" value="false">لم يتم دفع الرسوم</option>
+                            </select>
+                        
+                    </div>
+                </div>
+    
+    
+    
+    
+    
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3 col-md-3">حاله دفع رسوم التقديم:</header>
+                    <div class="col-md-8">
+                        
+                            <select class="text-style w-100" class="input-container" name="feesStatusSelector" formControlName="applying_fees_status">
+                                <option  disabled selected [value]="applicationData.data.application.applying_fees_status">{{applicationData.data.application.applying_fees_status ? 'تم دفع الرسوم' : 'لم يتم دفع الرسوم'}}</option>
+                                <option  *ngIf="applicationData.data.application.applying_fees_status != true" value="true">تم دفع الرسوم</option>
+                                <option  *ngIf="applicationData.data.application.applying_fees_status != false" value="false">لم يتم دفع الرسوم</option>
+                            </select>
+                       
+                    </div>
+                </div>
+                
+                
+                
+    
+    
+                <div class="row d-flex align-items-center mt-4">
+                    <header class="col-lg-3 col-md-3">   ملاحظات :</header>
+                    <div class="col-md-8">
+                        <textarea name="" id="" cols="50" rows="6" formControlName="feedback">{{applicationData.data.application.feedback}}</textarea>
+    
+                    </div>
+                </div>
+            
+
+
+
+            <div class="row mt-5">
+
+              <div class="col-sm-4">
+                <button class="btn accept-btn " type="submit" [disabled]="updateAppForm.invalid"> تحديث</button>
+              </div>
+
+            
+
+             
+
+            </div>
+               </form>
+
+            
+        </div>
+        </div>
+    </div>
+
+</div>

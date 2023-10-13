@@ -1,0 +1,93 @@
+<!-- <div class="colleges mt-4">
+    <div class="mycontainer">
+
+   
+
+
+      
+                <div class="text-center mt-5"  *ngIf="!collegesLoad" >
+                    <app-loading-spinner></app-loading-spinner>
+
+                </div>
+
+      
+     
+       <div class="row mt-5" *ngIf="collegesLoad">
+
+        
+
+
+
+            <div class="college  col-md-4 mt-4 " *ngFor="let colleges of colleges.data.collages ; let i =index"  >
+                <div class="rectangle-college-shape d-flex flex-column justify-content-center align-items-center">
+
+                 
+
+                    <h5>{{colleges.name}}</h5>
+                    <h6 class="mt-4">{{colleges.university_name}}</h6>
+
+                    <div class="date mt-3">{{colleges.created_at}}</div>
+                    <div class="price mt-2">{{colleges.updated_at}}</div>
+                    
+                </div>
+
+            </div>
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+       </div>
+
+    </div>
+</div>
+ -->
+
+
+
+<!-- start home for admin-->
+
+
+
+<div class="categories">
+    <div class="mycontainer">
+
+        <div class="add-diploma d-flex justify-content-start align-items-center " routerLink="/admin/programs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 66 73" fill="none">
+                <path d="M30.25 33.458V15.208H35.75V33.458H52.25V39.5413H35.75V57.7913H30.25V39.5413H13.75V33.458H30.25Z" fill="#0A4674"/>
+              </svg>
+
+              <h4 class="header-style mr-3">إضافة برنامج دبلومة جديدة</h4>
+        </div>
+
+
+
+        <div class="add-employee d-flex justify-content-start align-items-center mt-5 " routerLink="/admin/employee">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 66 73" fill="none">
+                <path d="M30.25 33.458V15.208H35.75V33.458H52.25V39.5413H35.75V57.7913H30.25V39.5413H13.75V33.458H30.25Z" fill="#0A4674"/>
+              </svg>
+
+              <h4 class="header-style mr-3">إضافة موظف جديد</h4>
+        </div>
+
+
+
+        <!-- <div class="add-lecturer d-flex justify-content-start align-items-center mt-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 66 73" fill="none">
+                <path d="M30.25 33.458V15.208H35.75V33.458H52.25V39.5413H35.75V57.7913H30.25V39.5413H13.75V33.458H30.25Z" fill="#0A4674"/>
+              </svg>
+
+              <h4 class="header-style mr-3">إضافة محاضر جديد</h4>
+        </div> -->
+
+    </div>
+</div>

@@ -1,0 +1,104 @@
+.mycontainer
+{
+    width: 90%;
+    margin: auto;
+    // min-height: 100vh; /*  to solve the hiden content under footer*/
+
+}
+header h4
+{
+    color: var(--primary-blue, #1778C2);
+text-align: right;
+font-family: Cairo;
+font-size: 35px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.data-content header
+{
+    color: var(--Font-Color, #212529);
+text-align: right;
+font-family: Cairo;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+}
+.input-container
+{
+    display: flex;
+    width: 300px;
+    height: 47px;
+    padding: 12px 16px;
+    
+    justify-content: flex-start;
+    align-items: center;
+
+    border-radius: 8px;
+    border: 1px solid var(--Placeholder, #7F7C7E);
+    // margin-right: 20px;
+}
+
+.btn
+{
+    width: 170px;
+    height: 55px;
+    padding: 6px;
+    border-radius: 10px;
+
+   
+    font-family: Cairo;
+    transition: .7s all;
+
+}
+.accept-btn
+{
+    background: var(--Primary-Blue, #1778C2);
+    color: var(--White, #FFF);
+    font-size: 20px;
+ 
+}
+.accept-btn:hover
+{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    // border: 1px solid var(--Primary-Blue, #1778C2);
+}
+
+
+.Notfulfilled-btn
+{
+    border: 1px solid var(--Primary-Blue, #1778C2);
+    color: var(--Primary-Blue, #1778C2);
+    background-color: transparent;
+}
+// .Notfulfilled-btn:hover
+// {
+//     border: none;
+//     color: var(--White, #FFF);
+//     background: var(--Primary-Blue, #1778C2);
+// }
+
+
+.rejected-btn
+{
+    border: 1px solid var(--Red, #CD5858);
+    color: var(--Red, #CD5858);
+    background-color: transparent;
+}
+.rejected-btn:hover
+{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+@media (max-width: 575px){
+    .Notfulfilled-btn,.rejected-btn
+    {
+            margin-top: 20px;
+    }
+}

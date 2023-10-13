@@ -1,0 +1,256 @@
+
+
+<div *ngIf="isLoading" class="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+
+<div class="program-details mt-5" *ngIf="!isLoading">
+
+
+
+
+    <div class="mycontainer" >
+        <div class="program-header d-flex justify-content-start align-items-center">
+            <img src="../../../assets/applicant/Vector.svg"  class="back" (click)="navigateToParentComponent()">
+            <h4 class="pt-1">{{programDetails.data.program.name}}</h4>
+        </div>
+      
+    
+        <div class="program-content">
+    
+            <div class="program-info">
+                <h5>عن الدبلومة</h5>
+                <p class="mt-2">
+                    
+                    {{programDetails.data.program.description}}                
+                </p>
+            </div>
+         
+        
+    
+            <div class="program-fees">
+                <h5>رسوم البرنامج</h5>
+                <ul>
+                    <li  class="mt-2">رسوم التقديم: {{programDetails.data.program.applying_fees}} جنيه مصري (غير قابلة للاسترداد).</li>
+                    <li  class="mt-2">رسوم الدراسة: {{programDetails.data.program.program_fees}} جنيه مصري لكل فصل دراسي.</li>
+                    <li  class="mt-2">رسوم الكتب والمواد: تتفاوت حسب المقررات والمتطلبات.</li>
+                    <li class="mt-2"> عدد الساعات المعتمده في البرنامج: {{programDetails.data.program.credit_hour_fees}} ساعه</li>
+                    
+                </ul>
+            </div>
+    
+            <div class="program-duration d-flex justify-content-between">
+                <div>
+                    <h5>تاريخ التقديم</h5>
+                    <ul>
+                        <li class="mt-2"> من : {{formattedSDate}}</li>
+                        <li class="mt-2">الي : {{formattedEDate}} </li>
+                    </ul>
+                </div>
+    
+    
+                <!--------------- if applicant--------->
+                <!-- <div class="register">
+                    <button class="btn " (click)="openApplication()">سجل الان</button>
+                </div> -->
+    
+    
+                <!---------------------------if employee-- -------------->
+    
+                <!-- <div class="register">
+                    <button class="btn" (click)="showApplicantsReq()">الطلبه المتقدمون</button>
+                </div> -->
+    
+            </div>
+    
+
+            <div class="requirements" >
+                <h5> المستندات المطلوبه</h5>
+                <ul *ngIf="programFiles">
+                    <li class="mt-2" *ngFor="let file of this.programFiles.data.programFiles "> 
+                        {{file.name}} ({{file.type}})
+                    </li>
+                
+                
+                </ul>
+            </div>
+
+
+                <div class="register d-flex justify-content-end align-items-center mt-2">
+                    <button class="btn addFile ml-4" data-toggle="modal" data-target="#addFile" >اضافه مستند </button>
+                    <button class="btn deleteFile"   data-toggle="modal" data-target="#deleteFile">مسح مستند </button>
+                </div>
+
+
+                
+
+
+            <div class="d-flex flex-column justify-content-start align-items-start mt-3">
+                    <div class="alert alert-primary w-lg-25" role="alert">
+                        تم انشاء الدبلومه في {{formattedCreatedDate}}
+                    </div>
+                    <div class="alert alert-danger w-lg-25" role="alert">
+                        اخر تحديث في الدبلومه في {{formattedUpdatedDate}}
+
+                    </div>
+            </div>
+    
+        </div>
+
+
+
+    </div>
+ </div>
+
+
+
+<!-- start add file modal-->
+ <div *ngIf="!isLoading " class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-arabic  modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between">
+          <h5 class="modal-title" id="exampleModalLabel">اضافه مستند</h5>
+         
+
+          <div data-dismiss="modal" aria-label="Close" style="font-size: 25px; cursor: pointer;">x</div>
+
+        </div>
+
+
+
+        <div class="modal-body px-5">
+           
+
+            <form class="form-content mt-4" [formGroup]="addFile" (ngSubmit)="UploadFile()">
+
+              
+    
+    
+          
+      
+           
+
+
+                <div class="row d-flex flex-column align-items-start mt-3">
+                    <header class="col-lg-3  "> اسم المستند  </header>
+                    
+                    <div class="col-lg-5 mt-1">
+                       
+                            <input type="text" class="form-control" formControlName="name">
+                       
+                    </div>
+                </div>
+
+
+          
+                <div class="form-group mt-3">
+                    <header class="col-lg-3  "> نوع المستند  </header>
+                    <select class="form-control mt-2" id="exampleFormControlSelect1" formControlName="type" #addFileSelect>
+                      <option value="image/jpeg">jpeg/jpg</option>
+                      <option value="application/pdf"> PDF</option>
+                      <option value="image/png">png</option>
+                      <option value="application/zip">ZIP archive</option>
+                      <option value="text/csv">Comma-separated values (CSV)</option>
+                      <option value="application/vnd.rar">RAR archive</option>
+                      <option value="application/msword">Microsoft Word</option>
+                      <option value="text/plain">Text</option>
+                      <option value="application/vnd.openxmlformats-officedocument.presentationml.presentation">Microsoft PowerPoint (OpenXML)</option>
+                      <option value="application/vnd.ms-powerpoint">Microsoft PowerPoint</option>
+                
+                    </select>
+                  </div>
+          
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+          <div class="mt-4">
+
+            <button type="submit" class="btn add-btn  ml-3" [disabled]="addFile.invalid">اضافه</button>
+            <button type="button" class="btn close-btn" data-dismiss="modal">اغلاق</button>
+          </div>
+                
+            </form>
+         
+        </div>
+
+
+
+
+        
+      </div>
+    </div>
+  </div> 
+
+
+  <!-- end add file modal-->
+
+
+
+  <!-- start remove file-->
+
+
+
+
+  <div *ngIf="!isLoading && programFiles" class="modal fade" id="deleteFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-arabic  modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between">
+          <h5 class="modal-title" id="exampleModalLabel">اضافه دبلومه</h5>
+         
+
+          <div data-dismiss="modal" aria-label="Close" style="font-size: 25px; cursor: pointer;">x</div>
+
+        </div>
+
+
+
+        <div class="modal-body px-5">
+           
+
+            <form class="form-content mt-4"  >
+
+              
+    
+    
+          
+                <div class="form-group mt-3">
+                    <header class="col-lg-3  "> اختار الملف </header>
+                    <select class="form-control mt-2" id="exampleFormControlSelect1"  [(ngModel)]="removeFileIndex" required name="removeFileIndex" #deleteFileSelect>
+                      <option  *ngFor="let file of this.programFiles.data.programFiles ; let i = index " [value]="i">{{file.name}}</option>
+                
+                    </select>
+                </div>
+
+    
+    
+    
+              <div class="mt-4">
+
+                <button type="submit" class="btn add-btn  ml-3"  (click)="deleteFile()" [disabled]="removeFileIndex === -1">مسح</button>
+                <button type="button" class="btn close-btn" data-dismiss="modal">اغلاق</button>
+              </div>
+                
+            </form>
+         
+        </div>
+
+
+
+
+        
+      </div>
+    </div>
+  </div> 
+
+
+  <!--end remove file-->
