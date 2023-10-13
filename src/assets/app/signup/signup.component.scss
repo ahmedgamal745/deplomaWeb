@@ -1,0 +1,106 @@
+.all
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.application{
+    min-height: 700px;
+    width: 35%;
+    background: #FFF;
+
+    box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input-container
+{
+    margin-top: 15px;
+    
+// width: 450px;
+width: 75%;
+height: 50px;
+padding: 10px 16px;
+cursor: pointer;
+
+}
+.error-container
+{
+    margin-top: 5px;
+    
+// width: 450px;
+width: 75%;
+height: 50px;
+padding: 10px 16px;
+cursor: pointer;
+
+}
+input::placeholder
+{
+    color: var(--placeholder, #7F7C7E);
+text-align: right;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+.save
+{
+    border-radius: 10px;
+background: var(--primary-blue, #1778C2);
+display: flex;
+width: 200px;
+    height: 49px;
+
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+border: none;
+cursor: pointer;
+
+}
+@media screen and (max-width: 480px) {
+    .application {
+      width: 90%; /* Adjust the width for smaller screens */
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for medium-sized screens */
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for smaller screens */
+      padding: 20px; /* Add some padding to the form */
+      height: auto; /* Allow the height to adjust to content */
+    }
+  
+    .input-container {
+      width: 100%; /* Take up the full width on smaller screens */
+    }
+  }
+
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .application {
+      width: 60%; /* Adjust the width for larger screens */
+    }
+  }
+
+  @media screen and (min-width: 1201px) {
+    .application {
+      width: 40%; /* Default width for larger screens */
+    }
+  }

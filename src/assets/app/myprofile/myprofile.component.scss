@@ -1,0 +1,134 @@
+.all
+{
+    display: flex;
+    justify-content: center;
+   margin-top: 50px;
+    
+}
+.application
+{
+
+  
+    // width: 600px;
+    min-height: 700px;
+    min-width: 35%;
+
+
+background: #FFF;
+
+box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input-container
+{
+    
+    
+width: 450px;
+
+
+}
+
+.input-container select option:hover
+{
+    cursor: pointer !important;
+}
+
+input::placeholder
+{
+    color: var(--placeholder, #7F7C7E);
+text-align: right;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.input-container select option:hover
+{
+    cursor: pointer !important;
+}
+.delete-acc
+{
+    width: 123px;
+    height: 46px;
+padding: 10px;
+color: #CD5858;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+border-radius: 10px;
+border: 1px solid #CD5858;
+background-color: transparent !important;
+cursor: pointer;
+}
+.save
+{
+    border-radius: 10px;
+background: var(--primary-blue, #1778C2);
+display: flex;
+width: 123px;
+    height: 46px;
+padding: 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+border: none;
+cursor: pointer;
+
+}
+
+
+.label-style
+{
+  color: var(--DarkBlue, #001D4B);
+
+font-family: Cairo;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+@media screen and (max-width: 480px) {
+    .application {
+      width: 90%; /* Adjust the width for smaller screens */
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for medium-sized screens */
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .application {
+      width: 80%; /* Adjust the width for smaller screens */
+      padding: 20px; /* Add some padding to the form */
+      height: auto; /* Allow the height to adjust to content */
+    }
+  
+    .input-container {
+      width: 100%; /* Take up the full width on smaller screens */
+    }
+  }
+
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .application {
+      width: 60%; /* Adjust the width for larger screens */
+    }
+  }
+
+  @media screen and (min-width: 1201px) {
+    .application {
+      width: 40%; /* Default width for larger screens */
+    }
+  }

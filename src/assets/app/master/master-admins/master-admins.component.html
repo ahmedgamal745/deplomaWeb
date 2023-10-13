@@ -1,0 +1,49 @@
+
+
+    <div class="px-4">
+        
+
+     
+      <div class="text-center mt-5"  *ngIf="!collegesLoad" >
+        <app-loading-spinner></app-loading-spinner>
+
+      </div>
+
+            <!--loading spinner-->
+
+
+            <div  *ngIf="collegesLoad && !colleges" class="mt-5">
+              <h3>
+                  لا يوجد كليات
+              </h3>  
+            </div>
+           
+     
+       <div class="row mt-5" *ngIf="collegesLoad && colleges ">
+
+        
+
+
+
+            <div class="college  col-md-4 mt-4 "    *ngFor="let colleges of colleges.data.collages ; let i =index" (click)="clickHere(i)">
+                <div class="rectangle-college-shape d-flex flex-column justify-content-center align-items-center " >
+
+                    
+
+                    <h5>{{colleges.name}}</h5>
+                    <h6 class="mt-4">{{colleges.university_name}}</h6>
+
+                    <div class="date mt-3">تم الانشاء في : {{colleges.created_at | dateFormat}}</div>
+                    <div class="price mt-2">تم التحديث في : {{colleges.updated_at | dateFormat}}</div>
+                    
+                </div>
+
+            </div>
+
+    </div> 
+
+
+
+
+
+     

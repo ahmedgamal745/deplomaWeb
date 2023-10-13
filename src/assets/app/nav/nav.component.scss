@@ -1,0 +1,256 @@
+
+.navbar
+{
+    background: var(--primary-blue, #1778C2) !important;
+    box-shadow: 0px 14px 16px 0px rgba(4, 60, 102, 0.25);
+}
+.universityLogo-container
+{
+  
+ background-color: #fff;
+ filter: drop-shadow(0px 0px 17.432117462158203px rgba(255, 255, 255, 0.60));
+border-radius: 50%;
+ display: flex;
+width: 60px;
+height: 60px;
+padding: 0px 0.722px 0.722px 0px;
+justify-content: center;
+align-items: center;
+}
+.universityLogo-container .universityLogo
+{
+    width: 35.621px;
+height: 45.064px;
+}
+
+.logo-content h5
+{
+    color: #FFF;
+    text-align: right;
+    font-family: Cairo;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 15px; /* 166.667% */
+    letter-spacing: -0.156px;
+}
+.logo-content h6 
+{
+    color: #FFF;
+text-align: right;
+font-family: Cairo;
+font-size: 19px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 200% */
+letter-spacing: -0.156px;
+margin-top: -5px;
+}
+
+
+
+/* start  nav-buttons style */
+.nav-item .back-btn ,.nav-item .login-btn 
+{
+
+
+display: flex;
+justify-content: center;
+align-items: center;
+height: 42px;
+width: 125px;
+cursor: pointer;
+border-radius: 10px;
+ border: 1px solid var(--white, #FFF);
+ background-color: transparent;
+
+}
+.nav-item .back-btn span ,.nav-item .login-btn span 
+{
+    color: var(--white, #FFF);
+    font-family: Cairo;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    
+}
+.nav-item .back-btn i 
+{
+color: var(--white, #FFF);
+
+font-size: 16px;
+margin-right: 10px;
+}
+
+
+/* end nav-buttons style */
+
+
+
+/* start user-info style */
+.user-info
+{
+    display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 15px;
+gap: 8px;
+}
+.user-info svg
+{
+    width: 30px;
+height: 30px;
+}
+.user-info span
+{
+    color: #FFF;
+text-align: right;
+font-family: Cairo;
+font-size: 21px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.dropdown-item
+{
+    cursor: pointer;
+    transition: .7s all;
+    color: var(--font-color, #212529);
+text-align: right;
+font-family: Cairo;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+cursor: pointer;
+line-height: normal;
+}
+.dropdown-item
+{
+    padding-bottom: 10px;
+  
+ 
+}
+
+.dropdown-item:hover
+{
+    cursor: pointer;
+    background-color: var(--primary-blue);
+    color: white;
+}
+.myProfile
+{
+position: relative;
+}
+.myProfile::after
+{
+    content: "";
+    width: 147px;
+    height: 1px;
+    position: absolute;
+    color: red;
+    bottom: 0px;
+    background-color: red;
+    left: 4%;
+}
+.dropdown-menu
+{
+    top: 140% !important;
+    z-index: 2222222;
+}
+/* end user-info style */
+
+
+
+
+/* Media query for screens with max-width of 768px */
+@media (max-width: 768px) {
+    .universityLogo-container {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+
+    .universityLogo-container .universityLogo {
+        width: 30px;
+        height: 38px;
+    }
+
+    .logo-content h5 {
+        font-size: 18px;
+    }
+
+    .logo-content h6 {
+        font-size: 17px;
+    }
+
+    .nav-item .back-btn,
+    .nav-item .login-btn {
+        width: auto;
+        padding: 6px 10px;
+    }
+
+    .nav-item .back-btn i {
+        margin-right: 5px;
+    }
+
+    .user-info svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .user-info span {
+        font-size: 18px;
+    }
+
+    .dropdown-menu {
+        top: 120% !important;
+    }
+}
+
+
+
+/* Additional media queries for smaller screen sizes if needed */
+@media (max-width: 480px) {
+    .universityLogo-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    .universityLogo-container .universityLogo {
+        width: 25px;
+        height: 32px;
+    }
+
+    .logo-content h5 {
+        font-size: 16px;
+    }
+
+    .logo-content h6 {
+        font-size: 15px;
+    }
+
+    .nav-item .back-btn,
+    .nav-item .login-btn {
+        width: auto;
+        padding: 5px 8px;
+    }
+
+    .nav-item .back-btn i {
+        font-size: 14px;
+        margin-right: 4px;
+    }
+
+    .user-info svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .user-info span {
+        font-size: 16px;
+    }
+
+    .dropdown-menu {
+        top: 110% !important;
+    }
+}

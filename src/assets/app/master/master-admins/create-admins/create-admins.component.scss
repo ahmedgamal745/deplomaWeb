@@ -1,0 +1,191 @@
+
+
+.reactangle-icon-shape
+{
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.home
+{
+    background: #1A5CAA;
+}
+.add
+{
+    background: #1778c2;
+}
+.delete
+{
+    background: var(--Red, #CD5858);
+}
+.rectangle-college-shape
+{
+    background: var(--White, #FFF);
+    padding: 30px;
+    text-align: center;
+    min-height: 260px;
+    cursor: pointer;
+    /* PDF Style */
+    box-shadow: 0px 3.27652px 26.21217px 0px rgba(0, 0, 0, 0.25);
+}
+.rectangle-college-shape h5
+{
+        color: var(--Primary-Blue, #1778C2);
+   
+  
+    font-size: 35px;
+  
+    font-weight: 600;
+  
+}
+.rectangle-college-shape h6
+{
+    color: var(--Primary-Blue, #1778C2);
+
+    font-size: 20px !important;
+
+    font-weight: normal;
+
+}
+
+
+.rectangle-college-shape .date ,.price
+{
+    color: var(--Placeholder, #7F7C7E);
+  
+   
+    font-size: 24px;
+ 
+
+}
+
+
+.modal-arabic,.modal {
+    direction: rtl;
+  }
+
+  .modal-footer
+  {
+    justify-content: flex-start !important;
+  }
+
+
+
+
+  .form-content header
+{
+    color: var(--DarkBlue, #001D4B);
+    text-align: right;
+    font-family: Cairo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+.btn
+{
+    width: 150px;
+    height: 45px;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 20px;
+   
+    font-family: Cairo;
+    transition: .7s all;
+
+}
+.add-btn
+{
+    background: var(--Primary-Blue, #1778C2);
+    color: var(--White, #FFF);
+ 
+}
+
+
+.close-btn
+{
+    border: 1px solid var(--Red, #CD5858);
+    color: var(--Red, #CD5858);
+    background-color: transparent;
+}
+
+
+
+
+
+
+.input-container
+{
+    margin-top: 15px;
+    
+// width: 450px;
+width: 75%;
+height: 50px;
+padding: 10px 16px;
+cursor: pointer;
+
+}
+
+input::placeholder
+{
+    color: var(--placeholder, #7F7C7E);
+text-align: right;
+font-family: Cairo;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+@media screen and (min-width: 769px) and (max-width: 1200px)
+{
+    .rectangle-college-shape
+{
+   
+    padding: 20px;
+   
+}
+.rectangle-college-shape h5
+{
+   
+  
+    font-size: 30px;
+  
+  
+}
+.rectangle-college-shape h6
+{
+    color: var(--Primary-Blue, #1778C2);
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+}
+.rectangle-college-shape .date ,.price
+{
+    color: var(--Placeholder, #7F7C7E);
+  
+   
+    font-size: 18px;
+ 
+
+}
+
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  
+
+  
+}
+
+
+
+

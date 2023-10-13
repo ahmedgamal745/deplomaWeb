@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand d-flex" routerLink="/home">
+        <div class="universityLogo-container">
+         
+         
+            <img src="../../assets/nav/universityLogo.png" class="universityLogo" alt="">
+        </div>
+        
+        <div class="logo-content mr-3 mt-2">
+            <h5>التقديم علي الدبلومات </h5>
+            <h6>بكليه تجاره جامعه كفر الشيخ </h6>
+        </div>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+
+        <!-------------------  start back button ----------------->
+
+
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">
+            <button class="back-btn">
+                <span>العوده</span>
+                <i class="fas fa-arrow-left"></i>
+
+            </button>
+          </a>
+        </li> -->
+
+          <!-------------------  end  back button ----------------->
+       
+        
+
+            <!-------------------  start login button ----------------->
+      
+        <li class="nav-item " style="cursor: pointer;" *ngIf="!loggedIn">
+            <a class="nav-link" routerLink="/login">
+              <button class="login-btn">
+                  <span>الدخول</span>
+                 
+  
+              </button>
+            </a>
+          </li>
+         
+         <!-------------------  end login button ----------------->
+
+
+
+
+           <!-------------------  start user-info ----------------->
+
+           
+        <li class="nav-item " *ngIf="loggedIn">
+          <a class="nav-link ">
+           <div class=" d-flex justify-content-start">
+               <div class="user-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 32.5C24.8366 32.5 32 25.3366 32 16.5C32 7.66344 24.8366 0.5 16 0.5C7.16344 0.5 0 7.66344 0 16.5C0 25.3366 7.16344 32.5 16 32.5ZM22.6673 28.5H24.9531V26.2143C24.9531 24.6988 24.351 23.2453 23.2794 22.1737C22.2077 21.102 20.7543 20.5 19.2388 20.5H12.3816C10.8661 20.5 9.41265 21.102 8.34101 22.1737C7.26938 23.2453 6.66734 24.6988 6.66734 26.2143V28.5H8.95305V26.2143C8.95305 25.305 9.31428 24.4329 9.95726 23.7899C10.6002 23.1469 11.4723 22.7857 12.3816 22.7857H19.2388C20.1481 22.7857 21.0202 23.1469 21.6631 23.7899C22.3061 24.4329 22.6673 25.305 22.6673 26.2143V28.5ZM13.1861 17.6923C14.018 18.0369 14.9097 18.2143 15.8102 18.2143C17.6288 18.2143 19.373 17.4918 20.6589 16.2059C21.9449 14.9199 22.6673 13.1758 22.6673 11.3571C22.6673 9.53852 21.9449 7.79437 20.6589 6.50841C19.373 5.22245 17.6288 4.5 15.8102 4.5C14.9097 4.5 14.018 4.67737 13.1861 5.02197C12.3541 5.36657 11.5982 5.87167 10.9615 6.50841C10.3247 7.14516 9.81963 7.90108 9.47502 8.73303C9.13042 9.56497 8.95305 10.4566 8.95305 11.3571C8.95305 12.2576 9.13042 13.1493 9.47502 13.9813C9.81963 14.8132 10.3247 15.5691 10.9615 16.2059C11.5982 16.8426 12.3541 17.3477 13.1861 17.6923ZM19.0427 14.5896C18.1854 15.4469 17.0226 15.9286 15.8102 15.9286C14.5978 15.9286 13.435 15.4469 12.5777 14.5896C11.7204 13.7323 11.2388 12.5696 11.2388 11.3571C11.2388 10.1447 11.7204 8.98196 12.5777 8.12465C13.435 7.26735 14.5978 6.78571 15.8102 6.78571C17.0226 6.78571 18.1854 7.26735 19.0427 8.12465C19.9 8.98196 20.3816 10.1447 20.3816 11.3571C20.3816 12.5696 19.9 13.7323 19.0427 14.5896Z" fill="white"/>
+                    </svg>
+
+
+
+                    <div class="dropdown" >
+                      <span  data-toggle="dropdown" aria-expanded="true">{{userName}}</span>
+                      <div class="dropdown-menu">
+
+                        <a class="dropdown-item myProfile text-right" routerLink="/applicant/MyApplications" *ngIf="userRole == 'applicant'"> الدبلومات السابقه</a>
+
+
+                        <a class="dropdown-item myProfile text-right" routerLink="/admin" *ngIf="userRole == 'admin'">  لوحه التحكم</a>
+                        <a class="dropdown-item myProfile text-right" routerLink="/master" *ngIf="userRole == 'master'">  لوحه التحكم</a>
+
+                        <a class="dropdown-item myProfile text-right" routerLink="/employee" *ngIf="userRole == 'employee'">  لوحه التحكم</a>
+
+                        <a class="dropdown-item myProfile text-right" routerLink="/myprofile">معلومات الحساب</a>
+                        
+                        
+                        <button class="dropdown-item logout text-right mt-1" type="button"  (click)="logOut()">تسجيل الخروج</button>
+                  
+                      </div>
+                    </div>
+
+                    
+               </div>
+           </div>
+
+          </a>
+        </li> 
+
+          <!-------------------  end  user-info ----------------->
+
+
+
+      </ul>
+      
+    </div>
+  </nav>
